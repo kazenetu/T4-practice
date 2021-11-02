@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  t4tocs:
+    build: 
+      context: .
+      dockerfile: dotnet_dockerfile
+    volumes:
+      - type: bind
+        source: ../
+        target: /source
+    tty: true

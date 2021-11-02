@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>t4_practice</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TextTemplate Include="**/*.tt" />
+    <Generated Include="**/*.Generated.cs" />
+  </ItemGroup>
+
+  <!-- T4toCSが未ビルドの場合はビルド -->
+  <Target Name="CreateTool" BeforeTargets="TextTemplateTransform" Condition="!Exists('../T4toCS/bin/*.dll')">
+      <Exec WorkingDirectory="../T4toCS" Command="dotnet build" />
+  </Target>
+
+  <!-- T4toCSを使ってT4ファイルからCSソースファイルを生成 -->
+  <Target Name="TextTemplateTransform" BeforeTargets="BeforeBuild">
+    <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet ../T4toCS/bin/T4toCS.dll %(TextTemplate.Identity) $(RootNameSpace) %(TextTemplate.Filename) Generated/%(TextTemplate.Filename).Generated.cs" />
+  </Target>
+
+  <!-- 自動生成したファイルを削除 -->
+  <Target Name="TextTemplateClean" AfterTargets="Clean">
+    <Delete Files="@(Generated)" />
+  </Target>
+
+</Project>
