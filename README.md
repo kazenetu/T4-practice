@@ -4,3 +4,6 @@ VisualStudioを使用しない形でT4テンプレートを元にC#ソースコ�
 
 * [簡易T4コンバーター「T4toCS」](Regex-sample)  
   自作の簡易コンバータの使用例
+
+* [.NET ローカル ツール「dotnet-t4」](dotnet-t4-sample)  
+  Twitterで教えていただいたローカルツールの使用例
