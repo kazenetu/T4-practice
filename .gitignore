@@ -330,4 +330,4 @@ ASALocalRun/
 .mfractor/
 
 # T4 Generated Files
-Generated/*.cs
+**/Generated/*.Generated.cs
