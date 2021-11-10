@@ -1,7 +1,7 @@
 namespace t4_practice
 {
     /// <summary>
-    /// Repositoryのスーパークラス
+    /// 自動生成ファイル未作成時のビルドエラー回避用インターフェイス
     /// </summary>
     public interface ITransformText
     {
