@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="動的DLL読み込みサンプル" MinHeight="450" MaxHeight="450" MinWidth="800" MaxWidth="800">
+
+<Canvas>
+        <Button Content="動的DLL読み込み" HorizontalAlignment="Left" Height="50" Width="100" 
+             Canvas.Left="10" Canvas.Top="20"
+            Click="Run_Click"/>
+
+        <TextBox x:Name="Result"
+            Canvas.Left="10" Canvas.Top="90"
+        Width="760"
+        Height="250"
+        Text=""
+        TextWrapping="Wrap"
+        VerticalScrollBarVisibility="Visible" />
+</Canvas>
+</Window>
