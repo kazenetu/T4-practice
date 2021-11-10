@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>library</OutputType>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputPath>../../WPF/lib</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="../../Interface/Interface.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <TextTemplate Include="**/*.tt" />
+    <Generated Include="**/*.Generated.cs" />
+  </ItemGroup>
+
+  <!-- T4toCSが未ビルドの場合はビルド -->
+  <Target Name="CreateTool" BeforeTargets="TextTemplateTransform" Condition="!Exists('../T4toCS/bin/*.dll')">
+      <Exec WorkingDirectory="../T4toCS" Command="dotnet build" />
+  </Target>
+
+  <!-- T4toCSを使ってT4ファイルからCSソースファイルを生成 -->
+  <Target Name="TextTemplateTransform" BeforeTargets="BeforeBuild">
+    <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet ../T4toCS/bin/T4toCS.dll %(TextTemplate.Identity) t4_practice %(TextTemplate.Filename) Generated/%(TextTemplate.Filename).Generated.cs" />
+  </Target>
+
+  <!-- 自動生成したファイルを削除 -->
+  <Target Name="TextTemplateClean" AfterTargets="Clean">
+    <Delete Files="@(Generated)" />
+  </Target>
+
+</Project>
