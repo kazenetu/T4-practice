@@ -7,3 +7,6 @@ VisualStudioを使用しない形でT4テンプレートを元にC#ソースコ�
 
 * [.NET ローカル ツール「dotnet-t4」](dotnet-t4-sample)  
   Twitterで教えていただいたローカルツールの使用例
+
+* [WPFでの動的DLL読み込み実装例](example)  
+  T4テンプレートを使ったDLLの動的読み込みの実装例
