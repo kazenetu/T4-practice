@@ -19,7 +19,7 @@ namespace WPF
             InitializeComponent();
 
             // 読み込み対象のdllのフルパス設定
-            var thisPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var thisPath = Path.GetDirectoryName(System.AppContext.BaseDirectory);
             var assemblyPath = Path.Combine(thisPath, "lib");
 
             // DLL読み込み
