@@ -13,6 +13,11 @@ dotnet-t4を使用してT4ファイル(*tt)からC#ソースコード(*cs)の使
       dotnet tool install dotnet-t4
       ```
 
+   1. consoleディレクトリに移動  
+      ```sh
+      cd console
+      ```
+
    1. ビルド実行(T4ファイルからC#ソースコードの自動生成)  
       ```sh
       dotnet build

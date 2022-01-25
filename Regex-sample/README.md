@@ -8,6 +8,11 @@ T4toCSを使用してT4ファイル(*tt)からC#ソースコード(*cs)の使用
 
 ## 実行方法
 * dotnetコマンドを実行する場合
+   1. consoleディレクトリに移動  
+      ```sh
+      cd console
+      ```
+
    1. ビルド実行(T4ファイルからC#ソースコードの自動生成)  
       ```sh
       dotnet build
