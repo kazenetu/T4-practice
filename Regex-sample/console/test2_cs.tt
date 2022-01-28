@@ -9,6 +9,19 @@ public class <#= m_data.ClassName #>
 {
     public <#= m_data.ClassName #>()
     {
-        // TODO 初期化
     }
+
+    // ワンライナー
+    <# var line = 0; #>
+
+    // 複数行
+    <#
+    while(line < 5)
+    {
+        line++;
+    #>
+    private int a<#= line #>;
+    <#
+    }
+    #>
 }
